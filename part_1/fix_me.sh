@@ -1,8 +1,18 @@
 #!/bin/bash
 
 # Reading data from the user's input
+
+number='^[0-9]+$' #Setting a variable through regular expression. ^ indicates matching the beggining
+                  #of a line. + matches one or more occurences of the expression. $ matches
+                  # the regular expression to the end of a line.
+
 echo 'Enter a : '
 read a
+if ! [[ $a =~ $number ]] ; then #If the input is not a number, the script exits.
+    echo "Please enter a number!"
+    exit
+fi
+
 echo 'Enter b : ' 
 read b
 
