@@ -2,12 +2,17 @@
 
 # Reading data from the user's input
 
-#pos_int="^[0-9]+$" Originally had this set as a variable. However, the variable "number"
-#accounts for positives and negatives, so it's not required to set a variable.
+number="^[-+]?[0-9]+\.?[0-9]*$" #Crazy regular expression accounting for all numbers.
+                                #^ indicates string must start with - or +, which is made optional
+                                #by ? (once or no match). \. is a literal period, allowing us
+                                #to have an optional decimal via the next "?". * is zero or more
+                                #matches of 0-9, and $ indicates the end of the string.
 
 #bc is used extensively through the script. bc calls the command line calculator and allows
 #floats to be used in mathematical calculations. "scale" refers to the amount of decimal places.
 
+printf 'Please enter a number or type "exit" to quit.'
+echo
 
 while :                               #Sets a loop that allows you to keep trying until you enter a number.
 do
@@ -15,9 +20,7 @@ do
     read a
     if [[ $a == "exit" ]] ; then      #Allows you to exit the script. Not really necessary but it's cool.
         exit
-    elif ! [[ $a =~ $number ]] ; then #If the input is not a number the script cycles.
-        echo 'Please enter a number or type "exit" to exit.'
-    elif [ -z $a ] ; then             #If the input is empty asks for a number or exit.
+    elif ! [[ $a =~ $number ]] || [[ -z $a ]] ; then #If the input is not a number or blank the script cycles. || indicates "or."
         echo 'Please enter a number or type "exit" to exit.'
     else
             break                     #Stops the infinite loop once the condition of a number is met.
@@ -34,9 +37,7 @@ do
     read b
     if [[ $b == "exit" ]] ; then
         exit
-    elif ! [[ $b =~ $number ]] ; then
-        echo 'Please enter a number or type "exit" to exit.'
-    elif [ -z $b ] ; then
+    elif ! [[ $b =~ $number ]] || [[ -z $b ]] ; then
         echo 'Please enter a number or type "exit" to exit.'
     else
             break
@@ -49,7 +50,7 @@ add=`echo "scale=3 ; $a+$b" | bc`
 
 echo Addition of a and b is $add
 
-sub=`echo "scale=3 ; $a-$b" | bc`
+sub=`echo "scale=3 ; $a- $b" | bc`
 echo Subtraction of a and b is $sub
 
 mul=`echo "scale=3 ; $a*$b" | bc`
