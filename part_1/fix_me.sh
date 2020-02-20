@@ -5,6 +5,8 @@
 #pos_int="^[0-9]+$" Originally had this set as a variable. However, the variable "number"
 #accounts for positives and negatives, so it's not required to set a variable.
 
+exec 2>/dev/null                      #Redirects all standard error output to not exist.
+
 printf "Please no decimal numbers!\n"
 
 while :                               #Sets a loop that allows you to keep trying until you enter a number.
@@ -37,21 +39,31 @@ do
     fi
 done
 
+echo
+
 add=$((a + b))
 
-echo Addition of a and b are $add
+echo Addition of a and b is $add
 
 sub=$((a - b))
-echo Subtraction of a and b are $sub
+echo Subtraction of a and b is $sub
 
 mul=$((a * b))
-echo Multiplication of a and b are $mul
+echo Multiplication of a and b is $mul
 
 div=$((a / b))
-echo division of a and b are $div
+if [[ $b == 0 ]] ; then               #Message indicating 0 division is impossible. Replaces the ugly error message.
+    printf "Division of a and b is nothing! You can't divide by 0!\n"
+else
+echo Division of a and b is $div
+fi
 
 mod=$((a % b))
-echo Modulus of a and b are $mod
+if [[ $b == 0 ]] ; then
+    printf "Modulus of a and b is nothing! You can't divide by 0!\n"
+else
+echo Modulus of a and b is $mod
+fi
 
 ((++a))
 echo Increment operator when applied on "a" results into a = $a
