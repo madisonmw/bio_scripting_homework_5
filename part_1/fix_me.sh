@@ -2,11 +2,12 @@
 
 # Reading data from the user's input
 
-number='^[0-9]+$' #Setting a variable through regular expression. ^ indicates matching the beggining
-                  #of a line. + matches one or more occurences of the expression. $ matches
-                  #the regular expression to the end of a line.
+#pos_int="^[0-9]+$" Originally had this set as a variable. However, the variable "number"
+#accounts for positives and negatives, so it's not required to set a variable.
 
-while :           #Sets a loop that allows you to keep trying until you enter a number.
+printf "Please no decimal numbers!\n"
+
+while :                               #Sets a loop that allows you to keep trying until you enter a number.
 do
     echo 'Enter a : '
     read a
@@ -15,7 +16,7 @@ do
     elif ! [[ $a =~ $number ]] ; then #If the input is not a number the script cycles.
         echo 'Please enter a number or type "exit" to exit.'
     else
-            break                     # Stops the infinite loop once the condition of a number is met.
+            break                     #Stops the infinite loop once the condition of a number is met.
     fi
 
 done
