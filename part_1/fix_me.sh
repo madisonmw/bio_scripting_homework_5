@@ -17,6 +17,8 @@ do
         exit
     elif ! [[ $a =~ $number ]] ; then #If the input is not a number the script cycles.
         echo 'Please enter a number or type "exit" to exit.'
+    elif [ -z $a ] ; then             #If the input is empty asks for a number or exit.
+        echo 'Please enter a number or type "exit" to exit.'
     else
             break                     #Stops the infinite loop once the condition of a number is met.
     fi
@@ -33,6 +35,8 @@ do
     if [[ $b == "exit" ]] ; then
         exit
     elif ! [[ $b =~ $number ]] ; then
+        echo 'Please enter a number or type "exit" to exit.'
+    elif [ -z $b ] ; then
         echo 'Please enter a number or type "exit" to exit.'
     else
             break
