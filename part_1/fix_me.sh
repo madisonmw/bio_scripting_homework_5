@@ -2,6 +2,8 @@
 
 # Reading data from the user's input
 
+exec 2>/dev/null
+
 number="^[-+]?[0-9]+\.?[0-9]*$" #Crazy regular expression accounting for all numbers.
                                 #^ indicates string must start with - or +, which is made optional
                                 #by ? (once or no match). \. is a literal period, allowing us
