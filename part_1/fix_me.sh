@@ -4,17 +4,37 @@
 
 number='^[0-9]+$' #Setting a variable through regular expression. ^ indicates matching the beggining
                   #of a line. + matches one or more occurences of the expression. $ matches
-                  # the regular expression to the end of a line.
+                  #the regular expression to the end of a line.
 
-echo 'Enter a : '
-read a
-if ! [[ $a =~ $number ]] ; then #If the input is not a number, the script exits.
-    echo "Please enter a number!"
-    exit
-fi
+while :           #Sets a loop that allows you to keep trying until you enter a number.
+do
+    echo 'Enter a : '
+    read a
+    if [[ $a == "exit" ]] ; then      #Allows you to exit the script. Not really necessary but it's cool.
+        exit
+    elif ! [[ $a =~ $number ]] ; then #If the input is not a number the script cycles.
+        echo 'Please enter a number or type "exit" to exit.'
+    else
+            break                     # Stops the infinite loop once the condition of a number is met.
+    fi
 
-echo 'Enter b : ' 
-read b
+done
+
+#I found out that you have to set the "exit" condition first before the second one. If the condition where
+#$a isn't equal to a number is set first, it ignores the exit condition as it sees "exit" as not a number.
+
+while :
+do
+    echo 'Enter b : '
+    read b
+    if [[ $b == "exit" ]] ; then
+        exit
+    elif ! [[ $b =~ $number ]] ; then
+        echo 'Please enter a number or type "exit" to exit.'
+    else
+            break
+    fi
+done
 
 add=$((a + b))
 
