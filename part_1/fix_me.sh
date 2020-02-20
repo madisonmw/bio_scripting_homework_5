@@ -5,9 +5,9 @@
 #pos_int="^[0-9]+$" Originally had this set as a variable. However, the variable "number"
 #accounts for positives and negatives, so it's not required to set a variable.
 
-exec 2>/dev/null                      #Redirects all standard error output to not exist.
+#bc is used extensively through the script. bc calls the command line calculator and allows
+#floats to be used in mathematical calculations. "scale" refers to the amount of decimal places.
 
-printf "Please no decimal numbers!\n"
 
 while :                               #Sets a loop that allows you to keep trying until you enter a number.
 do
@@ -41,35 +41,36 @@ done
 
 echo
 
-add=$((a + b))
+add=`echo "scale=3 ; $a+$b" | bc`
 
 echo Addition of a and b is $add
 
-sub=$((a - b))
+sub=`echo "scale=3 ; $a-$b" | bc`
 echo Subtraction of a and b is $sub
 
-mul=$((a * b))
+mul=`echo "scale=3 ; $a*$b" | bc`
 echo Multiplication of a and b is $mul
 
-div=$((a / b))
+div=`echo "scale=3 ; $a / $b" | bc`
 if [[ $b == 0 ]] ; then               #Message indicating 0 division is impossible. Replaces the ugly error message.
     printf "Division of a and b is nothing! You can't divide by 0!\n"
 else
 echo Division of a and b is $div
 fi
 
-mod=$((a % b))
+mod=`echo "$a % $b" | bc`
 if [[ $b == 0 ]] ; then
     printf "Modulus of a and b is nothing! You can't divide by 0!\n"
 else
 echo Modulus of a and b is $mod
 fi
 
-((++a))
-echo Increment operator when applied on "a" results into a = $a
+inc=`echo "var=$a ; ++var" | bc`
+echo Increment operator when applied on "a" results into a = $inc
 
-((--b))
-echo Decrement operator when applied on "b" results into b = $b
+dec=`echo "var=$b ; --var" | bc`
+echo Decrement operator when applied on "b" results into b = $dec
 
 ((--c))
-echo What was the default value \ of c if its value is now $c\?
+echo What was the default value\ of c if its value is now $c\?
+echo If c is now $c, the original value must be 0
