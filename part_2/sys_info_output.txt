@@ -1,0 +1,30 @@
+The current time and date is Fri Feb 21 17:33:01 CST 2020
+
+Here is a list of all currently logged-in users:
+uahlpe
+aubkzd
+aubmxa
+aubmxa
+ualmab
+aubcls62
+aubmxa
+asndcy
+aubmxa
+aubcls93
+asninstall
+aubszb
+usasyb
+usakcb
+aublmg
+ualpss
+usacls05
+ualtxs
+uabgbt
+usacls04
+usakcb
+usajdd
+auboda
+
+The system uptime is  17:33:01 up 45 days, 14 min, 23 users,  load average: 0.78, 0.88, 1.00
+
+------------------------------------------------------------------------------
