@@ -2,7 +2,7 @@
 
 # Reading data from the user's input
 
-exec 2>/dev/null
+exec 2>/dev/null                #Directs any standard error to not exist, basically.
 
 number="^[-+]?[0-9]+\.?[0-9]*$" #Crazy regular expression accounting for all numbers.
                                 #^ indicates string must start with - or +, which is made optional
@@ -53,7 +53,7 @@ add=`echo "scale=3 ; $a+$b" | bc`
 echo Addition of a and b is $add
 
 sub=`echo "scale=3 ; $a- $b" | bc`
-echo Subtraction of a and b is $sub
+echo Subtraction of b from a is $sub
 
 mul=`echo "scale=3 ; $a*$b" | bc`
 echo Multiplication of a and b is $mul
@@ -62,14 +62,14 @@ div=`echo "scale=3 ; $a / $b" | bc`
 if [[ $b == 0 ]] ; then               #Message indicating 0 division is impossible. Replaces the ugly error message.
     printf "Division of a and b is nothing! You can't divide by 0!\n"
 else
-echo Division of a and b is $div
+echo Division of b into a is $div
 fi
 
 mod=`echo "$a % $b" | bc`
 if [[ $b == 0 ]] ; then
     printf "Modulus of a and b is nothing! You can't divide by 0!\n"
 else
-echo Modulus of a and b is $mod
+echo Modulus of b into a is $mod
 fi
 
 inc=`echo "var=$a ; ++var" | bc`
