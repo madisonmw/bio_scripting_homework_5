@@ -3,26 +3,38 @@
 #Changed shebang line to be correct. Was originally calling the shell.
 #Reading data from the user's input
 
-print("Hello, please enter an integer.\n")
+print("Hello, please enter a number.\n")
 
-while True:                                    #Added in while loops for the a and b variables.
-    a = input("Enter a: ")                     #The "True" setting indicates that whenever the
-    if (a.isdigit()):                          #input of a is an integer, the loop will break.
-        break                                  #Otherwise the loops continues and badgers you
-    else:                                      #for an integer.
-        print("Please enter an integer.")
+#Added while loop with try/except added in. Although we really only need integers, I wanted to
+#find out a way to make floats work, too. eval() evaluates what type of input is
+#put in, so 2 is an int and 2.3 is a float, for example. While True is set, if type(a) is either a float
+#or int, the loop stops. Any other input causes a NameError exception that prompts you for
+#a number and continues the loop. I had to add the KeyboardInterrupt exception, since I could not ctrlC out of the
+#script without it. I am not sure what raise does; however, the exception does not work
+#without it.
 
-a = int(a)                                     #Converting the type of a to an int. Although
-print("You entered", a, "which is a", type(a)) #we enter a number as the input, the type is
-                                               #still considered a string.
 while True:
-    b = input("Enter b: ")
-    if (b.isdigit()):
-        break
-    else:
-        print("Please enter an integer.")
+    try:
+        a = eval(input("Enter a: "))
+        if type(a) == int or float:
+            break
+    except NameError:
+        print("Please enter a number.")
+    except KeyboardInterrupt:
+        raise
 
-b= int(b)
+print("You entered", a, "which is a", type(a))
+
+while True:
+    try:
+        b = eval(input("Enter b: "))
+        if type(b) == int or float:
+            break
+    except NameError:
+        print("Please enter a number.")
+    except KeyboardInterrupt:
+        raise
+
 print("You entered", b, "which is a", type(b))
 
 
