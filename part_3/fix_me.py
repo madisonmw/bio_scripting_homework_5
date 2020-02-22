@@ -119,16 +119,35 @@ print("a - b =", difference, ", which is a", type(difference))
 product = a * b #Changed indent. Was indented too much.
 print("a * b =", product, ", which is a", type(product))
 
-quotient = a / b
-print("a / b =", quotient, ", which is a", type(quotient))
+#Have to add while loops to account for if b = 1, since it decrements to 0 if it's input.
+#Also fixed general syntax errors in the remainder line.
 
-floor_quotient = a // b
-print("a // b =", floor_quotient, ", which is a", type(floor_quotient))
+while True:
+    try:
+        quotient = a / b
+        print("a / b =", quotient, ", which is a", type(quotient))
+        break
+    except ZeroDivisionError:
+        print("a / b = ... Nothing! You can't divide by zero!")
+        break
 
-remainder = a % b
-print("a % b =", remainder, ", which is a", type(remainder)) #Switched comma to inside first "",
-                                                             #added another after remainder, and
-                                                             #another after a".
+while True:
+    try:
+        floor_quotient = a // b
+        print("a // b =", floor_quotient, ", which is a", type(floor_quotient))
+        break
+    except ZeroDivisionError:
+        print("a // b = ... Nothing! You can't divide by zero!")
+        break
+
+while True:
+    try:
+        remainder = a % b
+        print("a % b =", remainder, ", which is a", type(remainder))
+        break
+    except ZeroDivisionError:
+        print("a % b = ... Nothing! You can't divide by zero!")
+        break
 
 power = a ** b
 print("a ** b =",
