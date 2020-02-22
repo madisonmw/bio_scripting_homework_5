@@ -3,11 +3,12 @@
 #Changed shebang line to be correct. Was originally calling the shell.
 #Reading data from the user's input
 
-a = input("Enter a: ")
+a = int(input("Enter a: ")) #Inputs a and b are turned into integers. Only works
+                            #if the input is an actual integer.
 
 print("You entered", a, "which is a", type(a))
 
-b = input("Enter b : ")
+b = int(input("Enter b : "))
 
 print("You entered", b, "which is a", type(b))
 
@@ -16,9 +17,6 @@ print("You entered", b, "which is a", type(b))
 # HINT: why would we be checking what type a and b are again?
 #       Let's assume we want a and b to be integers at this point
 #######################################################################
-
-a = int(a) #Makes input from a and b into integers. At the moment only works with actual integers.
-b = int(b)
 
 print("What is", a, "now?", type(a))
 print("What is", b, "now?", type(a))
