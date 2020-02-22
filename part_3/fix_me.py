@@ -3,13 +3,26 @@
 #Changed shebang line to be correct. Was originally calling the shell.
 #Reading data from the user's input
 
-a = int(input("Enter a: ")) #Inputs a and b are turned into integers. Only works
-                            #if the input is an actual integer.
+print("Hello, please enter an integer.\n")
 
-print("You entered", a, "which is a", type(a))
+while True:                                    #Added in while loops for the a and b variables.
+    a = input("Enter a: ")                     #The "True" setting indicates that whenever the
+    if (a.isdigit()):                          #input of a is an integer, the loop will break.
+        break                                  #Otherwise the loops continues and badgers you
+    else:                                      #for an integer.
+        print("Please enter an integer.")
 
-b = int(input("Enter b : "))
+a = int(a)                                     #Converting the type of a to an int. Although
+print("You entered", a, "which is a", type(a)) #we enter a number as the input, the type is
+                                               #still considered a string.
+while True:
+    b = input("Enter b: ")
+    if (b.isdigit()):
+        break
+    else:
+        print("Please enter an integer.")
 
+b= int(b)
 print("You entered", b, "which is a", type(b))
 
 
