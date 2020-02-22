@@ -76,7 +76,9 @@ floor_quotient = a // b
 print("a // b =", floor_quotient, ", which is a", type(floor_quotient))
 
 remainder = a % b
-print("a % b =," remainder ", which is a," type(remainder))
+print("a % b =", remainder, ", which is a", type(remainder)) #Switched comma to inside first "",
+                                                             #added another after remainder, and
+                                                             #another after a".
 
 power = a ** b
 print("a ** b =",
