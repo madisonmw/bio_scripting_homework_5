@@ -28,3 +28,30 @@ auboda
 The system uptime is  17:33:01 up 45 days, 14 min, 23 users,  load average: 0.78, 0.88, 1.00
 
 ------------------------------------------------------------------------------
+The current time and date is Fri Feb 21 18:34:08 CST 2020
+
+Here is a list of all currently logged-in users:
+uahlpe
+aubcls62
+aubmxa
+aubmxa
+ualmab
+aubcls62
+aubmxa
+asndcy
+aubmxa
+aubcls93
+asninstall
+aubszb
+ualzrl
+aublmg
+usacls05
+ualtxs
+uabgbt
+usacls04
+usajdd
+auboda
+
+The system uptime is  18:34:08 up 45 days,  1:15, 20 users,  load average: 0.98, 1.12, 1.00
+
+------------------------------------------------------------------------------
